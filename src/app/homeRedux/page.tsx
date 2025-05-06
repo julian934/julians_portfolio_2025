@@ -1,5 +1,6 @@
 'use client'
 import React,{useState} from 'react'
+import { useRef } from 'react'
 import Image from 'next/image'
 import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
@@ -13,25 +14,62 @@ import * as motion from "motion/react-client"
 import NextJS from '@/app/utils/images/misc/Next_JS_1.avif'
 import Snippets from '@/app/utils/images/misc/code_snippets.webp'
 import cryptoCurrency from '@/app/utils/images/misc/crypto_1.webp'
-
+import DownwardArrow from '@/app/utils/images/misc/icons8-downward-arrow-66.png'
+import GitHub from '@/app/utils/images/misc/icons8-github-50.png'
+import LinkedIn from '@/app/utils/images/misc/icons8-linkedin-50.png'
+import emailjs from '@emailjs/browser';
+import UH_logo from '@/app/utils/images/misc/University_of_Houston_seal.svg.png';
+import JSE_Cert from '@/app/utils/images/misc/jse_40_01.png'
 
 type Props = {}
 
 const HomeRedux = (props: Props) => {
+  const [senderName,setSenderName]=useState<any>();
+  const [email,setEmail]=useState<any>();
+  const [messageData,setMessageData]=useState<any>();
+  const userRef=useRef<any>(null);
+  const emailRef=useRef<any>(null);
+  const messageRef=useRef<any>(null);
+  const formRef=useRef<any>(null);
+  const transition = {
+    duration: 0.8,
+    delay: 0.5,
+    ease: [0, 0.71, 0.2, 1.01],
+  }
+  const submitData=async(e:any)=>{
+    e.preventDefault()
+    const sentData={
+      name:userRef.current.value,
+      email:emailRef.current.value,
+      message:messageRef.current.value
+    }
+    await emailjs.sendForm(`${process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID!}`,`${process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID!}`,formRef.current,{
+      publicKey:process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY
+    }).then(
+      () => {
+        console.log('SUCCESS!');
+      },
+      (error) => {
+        console.log('FAILED...', error.text);
+      },
+    );
+
+  }
   return (
     <div className='bg-white text-black' >
         <div className=' w-full static h-36 py-4 bg-white border-2 absolute' >
           <div className='flex justify-between w-full absolute' >
             <div className='flex self-center px-4 ' >
             <div className='flex  justify-self-center ' >
-                    <Image className='w-24 h-24' src={JB_Profile_Pic} alt="Julian Borner Profile Pic" />
+                    
+                    {/*<Image className='w-24 h-24' src={JB_Profile_Pic} alt="Julian Borner Profile Pic" /> */}
                 </div>
                 <div className=' self-center  justify-self-center top-4' >
                     <Image className='w-40 h-28' src={Logo} alt='Julian Borner Logo' />
                 </div>
                 
             </div>
-            <div className='flex justify-between p-4 self-center space-x-6' >
+            <div className='flex justify-between p-6 self-center space-x-6 ' >
                 <Link className=' text-yellow-600 text-lg' href='/HomeRedux' >Home</Link>
                 <Link className='text-yellow-600 text-lg ' href='#about' >About</Link>
                 <Link className=' text-yellow-600 text-lg ' href='#projects' >Projects</Link>
@@ -42,13 +80,19 @@ const HomeRedux = (props: Props) => {
           </div>
         </div>
         <div className='h-screen flex ' id='/' >
-        <div className='flex flex-col justify-start self-center bg-white p-4'  >
-           <h1>Socials</h1>
-        </div>
+        <motion.div className='flex flex-col justify-start self-center bg-yellow-600 p-2 space-y-4  rounded-lg ml-4 '  >
+           <Link href='https://github.com/julian934' >
+            <Image className='' src={GitHub} alt='gitHub' />
+           </Link>
+          <Link href='https://www.linkedin.com/in/julian-borner-709b91b7/' >
+            <Image className='' src={LinkedIn} alt='LinkedIn' />
+          </Link>
+          
+        </motion.div>
         <div className='flex flex-col  justify-center w-full space-y-4 ' >
           <div className='flex self-center justify-self-center ' >
             <div className='relative  self-center  ' >
-            <h1 className='flex text-yellow-600 justify-end text-center text-5xl self-center top-8 absolute w-96' >My name is </h1>
+            <h1 className='flex text-yellow-600 justify-end text-center text-6xl self-center top-8 absolute w-96' >My name is </h1>
             </div>
           
           <div className='w-full flex self-center -mt-12' ><Image className='w-full h-full' src={Logo} alt='Julian Borner Logo' /></div>
@@ -58,42 +102,103 @@ const HomeRedux = (props: Props) => {
                 building, managing and maintaining full-stack applications.
               </p>
               <Link className=' shadow-lg hover:shadow-xl hover:scale-125  justify-self-center self-center flex w-24 h-10 bg-yellow-600 text-center text-white rounded-lg' href='#projects'> <h1 className='w-full  self-center flex text-center justify-center text-white' >Projects</h1> </Link>
-              <motion.div className='flex justify-center self-' >
-            <h1 className='' >Down-ward Arrow Motion</h1>
+              <motion.div className='flex justify-center self-center' transition={transition} >
+                {/* Remeber to animate */}
+                <Image className='flex' src={DownwardArrow} alt='Downward Arrow' />
 
-          </motion.div>
+                 </motion.div>
         </div>
           
           
 
         </div>
-        <div className='h-screen border-2 border-black bg-slate-100 ' id='about'  >
-            <div className='flex flex-col self-center w-full p-4 border-2 border-black space-y-2 ' >
+        <div className='h-screen  bg-slate-100 ' id='about'  >
+            <div className='flex flex-col self-center w-full p-4  space-y-2 ' >
                <h1 className='flex justify-center self-center text-yellow-600 text-5xl' >About Me</h1>
-                  <hr className='flex self-center w-12' />
-                 <p className='flex w-1/4 self-center text-lg ' >Here you will find more information about me, what I do, and my current skills mostly in terms 
+                  <hr className='flex self-center w-60 bg-black ' />
+                 <p className='flex w-1/3 self-center text-lg ' >Here you will find more information about me, what I do, and my current skills mostly in terms 
                     of programming and technnology.</p> 
             </div>
             <div className='flex w-full  ' >
                 <div className='flex flex-col p-4 w-1/2' >
                     <Image className='flex' src={JB_Profile_Pic} alt='Profile Pic' />
-                     <div className='flex flex-col border-2 border-black  p-4 w-96 ' >
-                         <Link className=' shadow-lg hover:shadow-xl hover:scale-125  justify-self-center self-center flex w-24 h-10 bg-yellow-600 text-center text-white rounded-lg' href='#contact'> <h1 className='w-full  self-center flex text-center justify-center text-white' >Contact Me</h1> </Link>
+                     <div className='flex flex-col   p-4 w-5/6 bg-slate-100 rounded-md' >
+                         <div className='flex w-1/2 self-center justify-around ' >
+                            <Image className='w-44 h-44' src={UH_logo} alt='University of Houston Seal' />
+                            <Image className='w-44 h-44  ' src={JSE_Cert} alt='JSE-40' />
+                         </div>
+                         <div className='flex flex-col  justify-around p-4 w-5/6 self-center  ' >
+                         <Link className=' shadow-lg hover:shadow-xl hover:scale-125  justify-self-center self-center flex w-32 h-10 bg-yellow-600 text-center text-white rounded-lg' href='#contact'> <h1 className='w-full  self-center flex text-center justify-center text-white' >Contact Me</h1> </Link>
                         
+                      
+                      </div>
                       
                       </div>
                      
                 </div>
-                <div className='flex flex-col border-2  border-black w-1/2 p-4' >
+                <div className='flex flex-col space-y-2  w-1/2 p-4' >
                     <h1 className='flex self-center text-yellow-600 text-3xl' >Get to know me!</h1>
-                    <p className='flex self-center ' >Description...</p>
-                    <div className='flex flex-col w-full h-full self-center justify-center' >
-                    <h1 className='flex self-center justify-center' >My Skills</h1>
-                        <div className='flex  self-center' >
-                        <Link className='' href='' ><Image className='' src='' alt='/' /></Link>
-                       <Link className='' href='' ><Image className='' src='' alt='/' /></Link>
-                       <Link className='' href='' ><Image className='' src='' alt='/' /></Link>
-                       <Link className='' href='' ><Image className='' src='' alt='/' /></Link>
+                    <p className='flex self-center text-lg' >I graduated from the University of Houston in August of 2023 with a Bachelor's of Science in Digital Media from 
+                      the Cullen College of Engineering and received my certification for entry-level web development from the JavaScript Institute. I specialize in full-stack web development using React and Next.js, and UI/UX design 
+                       using Figma. I create and build functional web applications and intuitive User Interfaces that generate revenue for your business, helping it grow exponentially. I'm open to Job opportunities where I 
+                       can contribute, learn and grow within your organization. If you want to work with me, don&apos;t hesitate to contact me.    
+                    </p>
+                   
+                    <div>
+
+                    </div>
+                    <div className='flex flex-col w-full h-full self-center justify-center space-y-4 ' >
+                    <h1 className='flex self-center justify-center text-3xl text-yellow-600 ' >My Skills</h1>
+                        <div className='flex  self-center flex-wrap w-full space-x-4 space-y-2  p-4' >
+                        <div className='flex bg-slate-200 rounded-md w-32 h-14 space-x-4' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800 ' >Full-Stack Web Development</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-20 h-14 space-x-4' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >UI/UX Design</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-28 h-14 space-x-4' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >Crypto Development</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-x-4' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >HTML</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-4' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >CSS</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-24 h-14 space-4' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >JavaScript</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >React</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >Next.js</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-24 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >Typescript</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >Solidity</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >GIT</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >SASS</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >Github</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-28 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >Responsive Design</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-16 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >SEO</h1>
+                          </div>
+                          <div className='flex bg-slate-200 rounded-md w-20 h-14 space-4 ' >
+                            <h1 className=' w-full self-center justify-self-center text-center text-slate-800' >Terminal</h1>
+                          </div>
+                        
  
                         </div>
                           
@@ -103,36 +208,75 @@ const HomeRedux = (props: Props) => {
 
             </div>
         </div>
-        <div className='h-screen' id='projects' >
+        <div className='h-screen border-2' id='projects' >
             
-            <div className='flex flex-col self-center w-full p-4 border-2 border-black space-y-2 ' >
+            <div className='flex flex-col self-center w-full p-4  space-y-2 ' >
               <h1 className='flex justify-center self-center text-yellow-600 text-5xl' >Projects</h1>
-                <hr className='flex self-center w-12' />
-                 <p className='flex w-1/4 self-center text-lg ' >Here you will find some of the personal and client projects that I have created, with a detailed description of each project, along with the technologies
+                <hr className='flex self-center w-1/6' />
+                 <p className='flex w-1/2 self-center text-lg ' >Here you will find some of the personal and client projects that I have created, with a detailed description of each project, along with the technologies
                      used to created them.</p> 
             </div>
-            <div className='flex flex-col justify-center ' >
-                <div className='flex' >
-                    <Image className='' src='' alt='Gam3r Network' />
-                     <div className='' >
-                        <h1 className='' >The Gam3r Network</h1>
-                        <Link className=' shadow-lg hover:shadow-xl hover:scale-125  justify-self-center self-center flex w-24 h-10 bg-yellow-600 text-center text-white rounded-lg' href='#projects'> <h1 className='w-full  self-center flex text-center justify-center text-white' >Projects</h1> </Link>
+            <div className='flex flex-col justify-scenter border-2 h-full p-4 space-y-4' >
+                <div className='flex flex-row self-center min-h-[300px] border-2' >
+                    
+                    {/*<Image className='w-1/2' src='null' width={100} height={100} alt='Gam3r Network' /> */}
+                     <div className='flex flex-col self-center space-y-4' >
+                        <h1 className='text-center text-2xl text-yellow-600 ' >The Gam3r Network</h1>
+                        <p className='w-4/5 self-center' >The Gam3r Network is a companion website to The Gam3r Network YouTube channel that features video creation and upload, 
+                          chat forums and free games. The Gam3r Network site was built using Next.js, Node and TypeScript. </p>
+                        <Link className=' shadow-lg hover:shadow-xl hover:scale-125  justify-self-center self-center flex w-32 h-10 bg-yellow-600 text-center text-white rounded-lg' href='/projects/webdev/gam3r_network'> <h1 className='w-full  self-center flex text-center justify-center text-white' >View Project</h1> </Link>
                      </div>
                 </div>
-                <div className='flex' >
-                    <Image className='' src='' alt='ETQ-Amsterdam Clone' />
-                     <div className='' >
-                        <h1 className='' >The Gam3r Network</h1>
-                        <Link className=' shadow-lg hover:shadow-xl hover:scale-125  justify-self-center self-center flex w-24 h-10 bg-yellow-600 text-center text-white rounded-lg' href='#projects'> <h1 className='w-full  self-center flex text-center justify-center text-white' >Projects</h1> </Link>
+                <div className='flex flex-row self-center min-h-[300px] border-2' >
+                   
+                    {/* <Image className='w-1/2' src='null' width={100} height={100} alt='ETQ-Amsterdam Clone' /> */}
+                     <div className='flex flex-col self-center space-y-4 ' >
+                        <h1 className='text-center text-2xl text-yellow-600 ' >ETQ-Amsterdam Clone</h1>
+                        <p className='w-4/5 self-center ' > The ETQ-Amsterdam Clone is a clone of the pre-existing ETQ-Amsterdam webshop. This site features a full ecommerce suite, such as user sign-in/sign-up, purchasing 
+                          products and even adding items to your wishlist. This site was built using Next.js, Stripe and TypeScript. </p>
+                        <Link className=' shadow-lg hover:shadow-xl hover:scale-125  justify-self-center self-center flex w-32 h-10 bg-yellow-600 text-center text-white rounded-lg' href='/project/webdev/etq_clone'> <h1 className='w-full  self-center flex text-center justify-center text-white' >View Project</h1> </Link>
                      </div>
                 </div>
 
             </div>
         </div>
         <div className='h-screen' id='contact' >
+          <div className='flex flex-col self-center  ' >
+            <h1 className=' self-center text-5xl text-yellow-600 ' >Contact</h1>
+             <hr className=' self-center  w-1/5' />
+              <p className=' self-center ' >Feel free to contact me using the form below! I'd love to work with you! </p>
+
+          </div>
+          <div className='flex justify-self-center rounded-md  w-3/4 h-3/4 bg-slate-100 ' >
+            <form className='h-full w-full self-center  flex flex-col p-4 space-y-20 ' onSubmit={submitData} ref={formRef} >
+              <div className='w-1/2 self-center' >
+              <h1 className='text-lg' >Name</h1>
+              <input className='p-4 bg-slate-200 rounded-md w-full' placeholder='Enter Your Name' ref={userRef} name="user_name"/>
+
+              </div>
+              <div className='w-1/2 self-center' >
+                <h1 className='text-lg' >Email</h1>
+                <input className='p-4 bg-slate-200 rounded-md w-full' placeholder='Enter Your Email' ref={emailRef} name="user_email" />
+
+              </div>
+              <div className='w-1/2  self-center h-60' >
+                <h1 className='text-lg' >Message</h1>
+                <input className='p-4 bg-slate-200 rounded-md w-full  h-full '  placeholder='Enter Your Message' ref={messageRef} name="message" />
+
+              </div>
+                <div className='w-1/2 self-center ' >
+                  <button type='submit' className=' shadow-lg hover:shadow-xl hover:scale-125  justify-center w-28 h-10 text-white bg-yellow-600 rounded-md text-lg ' >
+                     Submit
+                  </button>
+
+                </div>
+            </form>
+
+          </div>
+
 
         </div>
-        HomeRedux
+        <Footer/>
         </div>
   )
   
