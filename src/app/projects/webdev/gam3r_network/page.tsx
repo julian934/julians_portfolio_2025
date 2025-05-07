@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Logo from '@/app/utils/images/logo/Julian_Borner_Logo.png'
 //import Footer from '@/app/components/newFooter/footer'
 import Footer from '@/app/components/footer/footer'
+import gam3rs_img from '@/app/utils/images/misc/Gam3rs_Web_App.jpg'
 
 type Props = {}
 
@@ -38,15 +39,15 @@ const Gam3r_Network = (props: Props) => {
         <div className=' bg-white text-black h-screen ' >
           <div className='w-full flex h-2/3 space-y-4 flex-col  border-2 border-black justify-self-center self-center z-5 p-4 ' > 
             
-            <div className=' flex w-2/3 self-center h-full border-2 border-black mt-28 z-50 ' >
-            <Image className='w-full h-full ' src='' alt='banner background' /> 
+            <div className=' flex w-2/3 self-center h-full rounded-md border-2 mt-28 z-50 ' >
+            <Image className='w-full h-full ' src={gam3rs_img} alt='banner background' /> 
             </div>
             <div className='flex flex-col self-center w-2/3 z-50 space-y-4' >
               <h1 className=' self-center text-2xl text-yellow-600  ' >The Gam3r Network</h1>
               <p className=' self-center border-2 w-2/3 text-lg ' >The Gam3r Network is a companion website to The Gam3r Network YouTube channel that features video creation and upload, 
               chat forums and free games. The Gam3r Network site was built using Next.js, React, Node and TypeScript. The site is continuously updated
                and maintained by me.  </p>
-              <Link className='w-36 h-10 bg-yellow-600 text-white text-center rounded-md flex self-center ' href='/' >
+              <Link className='w-36 h-10 bg-yellow-600 text-white text-center rounded-md flex self-center ' href='https://gam3rs.vercel.app/home' >
               <h1 className='flex self-center justify-center w-full h-full text-center mt-4 ' >Live Link
                 </h1>
                 </Link>
