@@ -23,7 +23,7 @@ const Gam3r_Network = (props: Props) => {
             <div className='flex self-center px-4 ' >
             <div className='flex  justify-self-center ' >
                     
-                    {/*<Image className='w-24 h-24' src={JB_Profile_Pic} alt="Julian Borner Profile Pic" /> */}
+                    
                 </div>
                 <div className=' self-center  justify-self-center top-4' >
                     <Image className='w-40 h-28' src={Logo} alt='Julian Borner Logo' />
@@ -59,11 +59,7 @@ const Gam3r_Network = (props: Props) => {
             </div>
 
           </div>
-          {/* <div className='flex flex-col space-y-4 w-2/3 h-60 border-2 border-black justify-self-center' >
-            <h1 className='flex self-center' >Project Description</h1>
-            <p className='flex self-center' >Testing...</p>
-
-          </div>*/}
+          
           
           <div className='flex flex-col rounded-md space-y-4 w-3/5 max-sm:w-5/6  h-1/6 justify-self-center border-2 border-slate-2' >
             <h1 className='flex self-center  text-2xl text-yellow-600 ' >Features</h1>
@@ -90,7 +86,7 @@ const Gam3r_Network = (props: Props) => {
             <div className='flex justify-self-around  flex-col w-1/4 max-sm:w-1/2 border-2 rounded-md ' >
             <h1 className='flex justify-self-around w-full flex justify-center w-full text-yellow-600' >Technology Used</h1>
               
-               {/* <h3 className='flex justify-center w-full' >React.js, Next.js, Node.js, MUX Api</h3> */}
+              
                <div className='flex justify-around p-4 ' >
                 <Image  className='flex w-14 max-sm:w-12 ' src={node_img} alt='Node' />
                 <Image  className='flex w-14 max-sm:w-12' src={react_img} alt='Node' />

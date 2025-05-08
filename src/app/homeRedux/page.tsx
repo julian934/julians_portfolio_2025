@@ -37,11 +37,12 @@ const HomeRedux = () => {
   }
   const submitData=async(e:any)=>{
     e.preventDefault()
+    /*
     const sentData={
       name:userRef.current.value,
       email:emailRef.current.value,
       message:messageRef.current.value
-    }
+    }*/
     await emailjs.sendForm(`${process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID!}`,`${process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID!}`,formRef.current,{
       publicKey:process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY
     }).then(
@@ -139,9 +140,9 @@ const HomeRedux = () => {
                 </div>
                 <div className='flex flex-col space-y-2  w-1/2 max-sm:w-full p-4' >
                     <h1 className='flex self-center text-yellow-600 text-3xl' >Get to know me!</h1>
-                    <p className='flex self-center text-lg max-sm:text-wrap ' >I graduated from the University of Houston in August of 2023 with a Bachelor's of Science in Digital Media from 
+                    <p className='flex self-center text-lg max-sm:text-wrap ' >I graduated from the University of Houston in August of 2023 with a Bachelor&apos;s of Science in Digital Media from 
                       the Cullen College of Engineering and received my certification for entry-level web development from the JavaScript Institute. I specialize in full-stack web development using React and Next.js, and UI/UX design 
-                       using Figma. I create and build functional web applications and intuitive User Interfaces that generate revenue for your business, helping it grow exponentially. I'm open to Job opportunities where I 
+                       using Figma. I create and build functional web applications and intuitive User Interfaces that generate revenue for your business, helping it grow exponentially. I&apos;m open to Job opportunities where I 
                        can contribute, learn and grow within your organization. If you want to work with me, don&apos;t hesitate to contact me.    
                     </p>
                    
@@ -246,7 +247,7 @@ const HomeRedux = () => {
           <div className='flex flex-col self-center  ' >
             <h1 className=' self-center text-5xl text-yellow-600 ' >Contact</h1>
              <hr className=' self-center  w-1/5' />
-              <p className=' self-center max-sm:w-5/6' >Feel free to contact me using the form below! I'd love to work with you! </p>
+              <p className=' self-center max-sm:w-5/6' >Feel free to contact me using the form below! I&apos;d love to work with you! </p>
 
           </div>
           <div className='flex justify-self-center rounded-md  w-3/4 h-3/4 max-sm:w-full max-sm:h-full bg-slate-100 ' >

@@ -2,9 +2,9 @@
 import React from 'react'
 import Image from 'next/image'
 
-type Props = {}
+//type Props = {}
 
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <div className='flex bg-black text-yellow-600 w-full ' >
         Footer

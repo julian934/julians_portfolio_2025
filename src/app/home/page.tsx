@@ -19,7 +19,7 @@ const Home = (props: Props) => {
       <div className=' flex  justify-center max-sm:justify-self-start z-50 max-sm:px-10 max-h-[200px] max-sm:self-start' >
          
       </div>
-      {/* use Ram Maheshwari Style but your own branding*/ }
+      
       <motion.div className='flex max-sm:flex-col ' >
           <div className='h-full md:h-3/4 md:w-3/4 max-sm:w-full z-20 max-sm:-ml-14  ' >
              <Image className=' -mt-20 scale-150 z-20  ' src={Logo} alt='Julian Borner Logo' />
