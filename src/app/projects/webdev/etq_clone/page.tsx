@@ -20,7 +20,7 @@ const ETQ_Clone = (props: Props) => {
             <div className='flex self-center px-4 ' >
             <div className='flex  justify-self-center ' >
                     
-                    {/*<Image className='w-24 h-24' src={JB_Profile_Pic} alt="Julian Borner Profile Pic" /> */}
+                    
                 </div>
                 <div className=' self-center  justify-self-center top-4' >
                     <Image className='w-40 h-28' src={Logo} alt='Julian Borner Logo' />

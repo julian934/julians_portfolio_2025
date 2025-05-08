@@ -1,5 +1,5 @@
 'use client'
-import React,{useState} from 'react'
+import React from 'react'
 import { useRef } from 'react'
 import Image from 'next/image'
 //import Navbar from '../components/navbar/navbar'
@@ -104,7 +104,7 @@ const HomeRedux = () => {
               </p>
               <Link className=' shadow-lg hover:shadow-xl hover:scale-125 max-sm:relative max-sm:top-48 justify-self-center self-center flex w-24 h-10 bg-yellow-600 text-center text-white rounded-lg' href='#projects'> <h1 className='w-full  self-center flex text-center justify-center text-white' >Projects</h1> </Link>
               <motion.div className='flex justify-center self-center max-sm:relative max-sm:top-60 ' transition={transition} >
-                {/* Remeber to animate */}
+                
                 <Image className='flex' src={DownwardArrow} alt='Downward Arrow' />
 
                  </motion.div>
