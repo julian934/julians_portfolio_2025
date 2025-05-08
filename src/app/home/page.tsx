@@ -1,14 +1,12 @@
 'use client'
-import React,{useState} from 'react'
+import React from 'react'
 import Image from 'next/image'
 //import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
-import Link from 'next/link'
 
-import JB_Profile_Pic from '../utils/images/profile/JB_Professional_Pic.jpg'
 import Logo from '../utils/images/logo/Julian_Borner_Logo.png'
 import * as motion from "motion/react-client"
-import NextJS from '@/app/utils/images/misc/Next_JS_1.avif'
+//import NextJS from '@/app/utils/images/misc/Next_JS_1.avif'
 import Snippets from '@/app/utils/images/misc/code_snippets.webp'
 import cryptoCurrency from '@/app/utils/images/misc/crypto_1.webp'
 

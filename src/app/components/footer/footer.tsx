@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
 //import Link from 'next/link'
-type Props = {}
+//type Props = {}
 
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     
 

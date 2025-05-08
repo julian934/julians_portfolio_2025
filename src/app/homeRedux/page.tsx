@@ -8,9 +8,9 @@ import Link from 'next/link'
 import JB_Profile_Pic from '../utils/images/profile/JB_Professional_Pic.jpg'
 import Logo from '../utils/images/logo/Julian_Borner_Logo.png'
 import * as motion from "motion/react-client"
-import NextJS from '@/app/utils/images/misc/Next_JS_1.avif'
-import Snippets from '@/app/utils/images/misc/code_snippets.webp'
-import cryptoCurrency from '@/app/utils/images/misc/crypto_1.webp'
+//import NextJS from '@/app/utils/images/misc/Next_JS_1.avif'
+//import Snippets from '@/app/utils/images/misc/code_snippets.webp'
+//import cryptoCurrency from '@/app/utils/images/misc/crypto_1.webp'
 import DownwardArrow from '@/app/utils/images/misc/icons8-downward-arrow-66.png'
 import GitHub from '@/app/utils/images/misc/icons8-github-50.png'
 import LinkedIn from '@/app/utils/images/misc/icons8-linkedin-50.png'
@@ -20,12 +20,12 @@ import JSE_Cert from '@/app/utils/images/misc/jse_40_01.png'
 import gam3rs_img from '@/app/utils/images/misc/Gam3rs_Web_App.jpg'
 import etq_clone_img from '@/app/utils/images/misc/ETQ_Amsterdam_Clone.jpg'
 
-type Props = {}
+//type Props = {}
 
-const HomeRedux = (props: Props) => {
-  const [senderName,setSenderName]=useState<any>();
-  const [email,setEmail]=useState<any>();
-  const [messageData,setMessageData]=useState<any>();
+const HomeRedux = () => {
+  //const [senderName,setSenderName]=useState<any>();
+  //const [email,setEmail]=useState<any>();
+ // const [messageData,setMessageData]=useState<any>();
   const userRef=useRef<any>(null);
   const emailRef=useRef<any>(null);
   const messageRef=useRef<any>(null);
