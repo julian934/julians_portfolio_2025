@@ -10,9 +10,9 @@ import * as motion from "motion/react-client"
 import Snippets from '@/app/utils/images/misc/code_snippets.webp'
 import cryptoCurrency from '@/app/utils/images/misc/crypto_1.webp'
 
-type Props = {}
+//type Props = {}
 
-const Home = (props: Props) => {
+const Home = () => {
    
   return (
     <div className=' bg-white text-black max-sm:space-y-4' >
@@ -51,38 +51,7 @@ const Home = (props: Props) => {
 
       </motion.div>
      
-      {/*<div className=' flex flex-col p-4' >
-         <div className='flex flex-col py-4' >
-            <div className='flex ' >
-              <h1 className='flex w-1/2  justify-center ' >Featured Projects</h1>
-              <Link className='flex w-1/2 justify-center ' href='/' >See All</Link>
-            </div>
-              
-              <div className='' >
-                  <Featured/>
-              </div>
-         </div>
-         <div className=' flex flex-col ' >
-            <div className='flex ' >
-            <h1 className='flex w-1/2  justify-center' >Frameworks</h1>
-            <Link className='flex w-1/2 justify-center ' href='/' >See All</Link>
-            </div>
-              
-              <div className='' >
-                  <Frameworks/>
-              </div>
-         </div>
-         <div className='flex flex-col ' >
-            <div className='flex ' >
-            <h1 className='flex w-1/2  justify-center' >Programming Languages</h1>
-            <Link className='flex w-1/2  justify-center' href='/' >See All</Link>
-            </div>
-             
-              <div className='' >
-                  <Language/>
-              </div>
-         </div>
-      </div> */}
+   
       
       
       <div className='flex self-center justify-center ' >

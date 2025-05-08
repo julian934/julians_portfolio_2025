@@ -10,9 +10,9 @@ import etq_clone_img from '@/app/utils/images/misc/ETQ_Amsterdam_Clone.jpg'
 import node_img from '@/app/utils/images/misc/icons8-node-js-64.png'
 import react_img from '@/app/utils/images/misc/icons8-react-48.png'
 import next_img from '@/app/utils/images/misc/Next_JS_1.avif'
-type Props = {}
+//type Props = {}
 
-const ETQ_Clone = (props: Props) => {
+const ETQ_Clone = () => {
   return (
     <div className='bg-white text-black' >
      <div className=' w-full static h-36 py-4 bg-white border-2 absolute' >
