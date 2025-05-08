@@ -2,7 +2,7 @@
 import React,{useState} from 'react'
 import { useRef } from 'react'
 import Image from 'next/image'
-import Navbar from '../components/navbar/navbar'
+//import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
 import Link from 'next/link'
 import JB_Profile_Pic from '../utils/images/profile/JB_Professional_Pic.jpg'

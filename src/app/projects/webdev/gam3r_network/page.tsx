@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Navbar from '@/app/components/navbar/navbar'
+//import Navbar from '@/app/components/navbar/navbar'
 import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '@/app/utils/images/logo/Julian_Borner_Logo.png'

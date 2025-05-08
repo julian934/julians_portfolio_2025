@@ -1,7 +1,7 @@
 'use client'
 import React,{useState} from 'react'
 import Image from 'next/image'
-import Navbar from '../components/navbar/navbar'
+//import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
 import Link from 'next/link'
 
@@ -19,7 +19,7 @@ const Home = (props: Props) => {
   return (
     <div className=' bg-white text-black max-sm:space-y-4' >
       <div className=' flex  justify-center max-sm:justify-self-start z-50 max-sm:px-10 max-h-[200px] max-sm:self-start' >
-         <Navbar/>
+         
       </div>
       {/* use Ram Maheshwari Style but your own branding*/ }
       <motion.div className='flex max-sm:flex-col ' >
