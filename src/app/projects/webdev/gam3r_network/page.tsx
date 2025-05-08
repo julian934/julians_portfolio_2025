@@ -12,9 +12,9 @@ import node_img from '@/app/utils/images/misc/icons8-node-js-64.png'
 import react_img from '@/app/utils/images/misc/icons8-react-48.png'
 import next_img from '@/app/utils/images/misc/Next_JS_1.avif'
 
-type Props = {}
+//type Props = {}
 
-const Gam3r_Network = (props: Props) => {
+const Gam3r_Network = () => {
   return (
     <div className=' bg-white text-black ' >
       

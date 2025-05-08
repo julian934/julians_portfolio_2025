@@ -26,9 +26,9 @@ const HomeRedux = () => {
   //const [senderName,setSenderName]=useState<any>();
   //const [email,setEmail]=useState<any>();
  // const [messageData,setMessageData]=useState<any>();
-  const userRef=useRef<any>(null);
-  const emailRef=useRef<any>(null);
-  const messageRef=useRef<any>(null);
+  const userRef=useRef(null);
+  const emailRef=useRef(null);
+  const messageRef=useRef(null);
   const formRef=useRef<any>(null);
   const transition = {
     duration: 0.8,
