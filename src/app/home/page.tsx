@@ -4,9 +4,7 @@ import Image from 'next/image'
 import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
 import Link from 'next/link'
-import Featured from '../components/home/featured'
-import Frameworks from '../components/home/frameworks'
-import Language from '../components/home/language'
+
 import JB_Profile_Pic from '../utils/images/profile/JB_Professional_Pic.jpg'
 import Logo from '../utils/images/logo/Julian_Borner_Logo.png'
 import * as motion from "motion/react-client"
@@ -17,18 +15,7 @@ import cryptoCurrency from '@/app/utils/images/misc/crypto_1.webp'
 type Props = {}
 
 const Home = (props: Props) => {
-   const [isLoading,setIsLoading]=useState<any>(false)
-   const [webDevHover,setWebDevHover]=useState<any>(false);
-   const [cryptoHover,setCryptoHover]=useState<any>(false);
-   const [aboutState,setAboutState]=useState<any>(false);
-   const variants={
-      active:{
-          opacity:1
-      },
-      hidden:{
-         opacity:0
-      }
-   }
+   
   return (
     <div className=' bg-white text-black max-sm:space-y-4' >
       <div className=' flex  justify-center max-sm:justify-self-start z-50 max-sm:px-10 max-h-[200px] max-sm:self-start' >
