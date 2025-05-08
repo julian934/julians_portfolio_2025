@@ -29,13 +29,13 @@ const HomeRedux = () => {
   const userRef=useRef(null);
   const emailRef=useRef(null);
   const messageRef=useRef(null);
-  const formRef=useRef<any>(null);
+  const formRef=useRef<HTMLFormElement>(null);
   const transition = {
     duration: 0.8,
     delay: 0.5,
     ease: [0, 0.71, 0.2, 1.01],
   }
-  const submitData=async(e:any)=>{
+  const submitData=async(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
     /*
     const sentData={
@@ -43,7 +43,7 @@ const HomeRedux = () => {
       email:emailRef.current.value,
       message:messageRef.current.value
     }*/
-    await emailjs.sendForm(`${process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID!}`,`${process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID!}`,formRef.current,{
+    await emailjs.sendForm(`${process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID!}`,`${process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID!}`,formRef.current!,{
       publicKey:process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY
     }).then(
       () => {
